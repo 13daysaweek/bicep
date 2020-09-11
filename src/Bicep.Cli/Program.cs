@@ -140,7 +140,6 @@ namespace Bicep.Cli
                 string text = ReadFile(bicepPath);
                 var lineStarts = TextCoordinateConverter.GetLineStarts(text);
 
-                var resourceTypeRegistrar = new ResourceTypeRegistrar(new AzResourceTypeProvider());
                 var compilation = new Compilation(resourceTypeRegistrar, SyntaxFactory.CreateFromText(text));
 
                 var emitter = new TemplateEmitter(compilation.GetSemanticModel());
