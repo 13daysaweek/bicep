@@ -38,6 +38,7 @@ namespace Bicep.Core.TypeSystem.Az
             if (!typeCache.TryGetValue(serializedType, out var typeSymbol))
             {
                 typeSymbol = ToTypeSymbol(serializedType);
+                typeSymbol.ValidationFlags = TypeSymbolValidationFlags.Permissive;
                 typeCache[serializedType] = typeSymbol;
             }
 
